@@ -12,11 +12,11 @@ type Client = *minio.Client
 
 // Config holds the configuration parameters required to connect to MinIO.
 type Config struct {
-	Address  string `yaml:"address" env:"MINIO_ADDRESS"`
-	User     string `yaml:"user"    env:"MINIO_USER"`
-	Password string `env:"MINIO_PASSWORD"`
-	Bucket   string `yaml:"bucket"  env:"MINIO_BUCKET"`
-	UseSSL   bool   `yaml:"use_ssl" env:"MINIO_USE_SSL"`
+	Address  string `confy:"address" yaml:"address" json:"address" toml:"address" env:"MINIO_ADDRESS"`
+	User     string `confy:"user"    yaml:"user"    json:"user"    toml:"user"    env:"MINIO_USER"`
+	Password string `confy:"password" env:"MINIO_PASSWORD"`
+	Bucket   string `confy:"bucket"  yaml:"bucket"  json:"bucket"  toml:"bucket"  env:"MINIO_BUCKET"`
+	UseSSL   bool   `confy:"use_ssl" yaml:"use_ssl" json:"use_ssl" toml:"use_ssl" env:"MINIO_USE_SSL"`
 }
 
 // New creates a new MinIO client and ensures that the specified bucket exists.
